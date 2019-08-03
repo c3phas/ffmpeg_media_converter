@@ -14,7 +14,7 @@ def convert_video(video_input,output_format,video_output):
 
 def extract_video_stream(video_input,video_output):
 
-	cmds = ['ffmpeg','-i',video_input,'-an','-vc copy',video_output,'-hide_banner']
+	cmds = ['ffmpeg','-i',video_input,'-an','-vc', 'copy',video_output,'-hide_banner']
 	spawn_child(cmds)
 	#print ("Thankyou for using this program")
 def extract_audio_stream(video_input,audio_output):
@@ -28,7 +28,9 @@ def cut_video(video_input,start_cut,end_cut,video_output):
 def add_watermark(video_input,image_overlay,video_output):
 	cmds = [ 'ffmpeg','-i',video_input,'-i',image_overlay,'-filter_complex','overlay=10:10',video_output]
 	spawn_child(cmds)
-
+def combine_video_mp3(video_input,audio_input,video_output):
+	cmds = [ 'ffmpeg','-i',video_input,'-i',audio_input,'-q:a','0','-q:v','0','-shortest',video_output,'-hide_banner' ]
+	spawn_child(cmds)
 
 
 #now lets write the rest of the program
@@ -75,10 +77,26 @@ elif (sys.argv[1] == "-m"):
 	extract_audio_stream(video_input,audio_output)	
 
 
+elif (sys.argv[1] == "--merge"):
+	print("--This will merge a video file and audio file--")
+	video_input = input("Enter the name of the video file: ")
+	#we will use mp4 as the output
+	audio_input = input("Enter the name of the audio file: ")
+	video_output = input ("How would you like to save it: ")
+	vidFormat = ".mp4"
+	video_output = video_output+vidFormat
+	combine_video_mp3(video_input,audio_input,video_output)
+
+elif (sys.argv[1] == "-v"):
+	print("--This will mute the video and save the muted copy--")
+	video_input = input("Enter the name of the video: ")
+	video_out = video_input.split(".")
+	vidFormat = video_out[1]
+	video_output = input ("How would you like to save the file : ")
+	video_output = video_output + "."+vidFormat
+	extract_video_stream(video_input,video_output)
 elif (sys.argv[1] == "--help"):
 	pass
-elif (sys.argv[1] == "-k"):
-	print("something crazy")	
 else:
 	print( "check the usage then try again")
 	#sys.exit()
