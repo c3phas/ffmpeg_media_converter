@@ -23,4 +23,6 @@ usage:
 		-b -basic video format conversion(mp4 to webm,webm to mp4 etc)
 		-c -cut video at specific time(eg to remove intro)
 		-m - convert your video files to mp3
+		-v -mute the video file provided
+		--merge - merge an audio and video file together(The output will be an mp4 file)
 		-h -help
