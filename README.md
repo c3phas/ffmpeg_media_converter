@@ -1,8 +1,8 @@
 
 <h3>wrapper for the ffmpeg library</h3>
-<b><h4>Description:</h4>This program is basically used to convert your media files
+<b><h4>Description:</h4>This program is basically used to convert your media files<br>
 from one format to another.</b>
-<b>It wraps the functionality of the ffmpeg library which is used 
+<b>It wraps the functionality of the ffmpeg library which is used <br>
 for converting media files to different formats</b>
 
 
