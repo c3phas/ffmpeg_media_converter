@@ -1,12 +1,12 @@
 
-<h3>wrapper for the ffmpeg library</h3>
-<b><h4>Description:</h4>This program is basically used to convert your media files<br>
-from one format to another.</b>
-<b>It wraps the functionality of the ffmpeg library which is used <br>
-for converting media files to different formats</b>
-
-
-<pre>usage:
+### wrapper for the ffmpeg library
+#### Description:
+This program is basically used to convert your media files
+from one format to another.
+It wraps the functionality of the ffmpeg library which is used
+for converting media files to different formats.
+```
+usage:
 	The program uses python3 and was tested on kali linux but 
 	should pretty much work on any system supporting python3 and 
 	has ffmpeg installed
@@ -27,4 +27,4 @@ for converting media files to different formats</b>
 		-v -mute the video file provided
 		--merge - merge an audio and video file together(The output will be an mp4 file)
 		-h -help
-</pre>
+```
